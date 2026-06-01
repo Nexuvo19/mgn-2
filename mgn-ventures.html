@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MGN Ventures — Pioneering Green Technology</title>
+<meta name="description" content="MGN Ventures Private Limited — building a regenerative future through renewable energy, sustainable mobility and circular technology." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F1E8;
+  --bg-2:#EDE7D8;
+  --cream:#FAF7EF;
+  --ink:#1F2A21;
+  --ink-soft:#3D4A3F;
+  --muted:#6B7568;
+  --sage:#8FA68E;
+  --sage-deep:#5B7359;
+  --sage-dark:#3D4F3C;
+  --moss:#2A3A29;
+  --clay:#C4A57B;
+  --terra:#A87E5C;
+  --line:rgba(31,42,33,.12);
+  --glass:rgba(250,247,239,.55);
+  --display:'Instrument Serif',serif;
+  --body:'Inter',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--body);scroll-behavior:smooth;overflow-x:hidden;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--sage-deep);color:var(--cream)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--sage);border-radius:5px}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;letter-spacing:-.01em;line-height:1.1;color:var(--moss)}
+.display{font-size:clamp(3rem,8vw,7rem);line-height:1}
+.h-section{font-size:clamp(2.25rem,5vw,4.25rem)}
+.h-sub{font-size:clamp(1.5rem,2.5vw,2.25rem)}
+.eyebrow{font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--sage-deep);display:inline-flex;align-items:center;gap:.75rem}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--sage-deep)}
+.muted{color:var(--muted)}
+.italic{font-style:italic;color:var(--sage-deep)}
+
+.container{width:min(1280px,92%);margin-inline:auto}
+section{padding:clamp(5rem,10vw,9rem) 0;position:relative}
+
+.btn{display:inline-flex;align-items:center;gap:.75rem;padding:1rem 1.75rem;font-size:.875rem;font-weight:500;letter-spacing:.02em;border:1px solid var(--moss);background:transparent;color:var(--moss);transition:all .4s var(--ease);border-radius:100px;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:var(--moss);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1;border-radius:100px}
+.btn:hover{color:var(--cream)}
+.btn:hover::before{transform:translateY(0)}
+.btn-primary{background:var(--moss);color:var(--cream)}
+.btn-primary::before{background:var(--sage-deep)}
+.btn-primary:hover{color:var(--cream);border-color:var(--sage-deep)}
+.btn .arrow{transition:transform .4s var(--ease);display:inline-block}
+.btn:hover .arrow{transform:translateX(5px)}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 0;transition:all .4s var(--ease)}
+.nav.scrolled{background:rgba(245,241,232,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:1rem 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:min(1280px,92%);margin-inline:auto}
+.logo{font-family:var(--display);font-size:1.5rem;color:var(--moss);display:flex;align-items:center;gap:.6rem}
+.logo-leaf{width:28px;height:28px;background:var(--sage-deep);border-radius:50% 0 50% 50%;transform:rotate(-45deg);position:relative}
+.logo-leaf::after{content:'';position:absolute;inset:30%;background:var(--bg);border-radius:50%}
+.nav-links{display:flex;gap:2.5rem;font-size:.875rem}
+.nav-links a{position:relative;padding:.25rem 0;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--moss);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--moss)}
+.nav-links a:hover::after{width:100%}
+.menu-toggle{display:none;width:32px;height:32px;flex-direction:column;justify-content:center;gap:5px}
+.menu-toggle span{display:block;width:22px;height:1px;background:var(--moss);transition:.3s}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:8rem;padding-bottom:4rem}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4}
+.hero-blob.b1{width:600px;height:600px;background:var(--sage);top:-200px;right:-100px;animation:floatBlob 18s ease-in-out infinite}
+.hero-blob.b2{width:500px;height:500px;background:var(--clay);bottom:-150px;left:-100px;animation:floatBlob 22s ease-in-out infinite reverse}
+@keyframes floatBlob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-40px) scale(1.1)}}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:3rem}}
+.hero-text h1{margin:2rem 0}
+.hero-text .lead{font-size:clamp(1.05rem,1.35vw,1.2rem);color:var(--ink-soft);max-width:540px;margin-bottom:2.5rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* Globe */
+.globe-stage{position:relative;aspect-ratio:1;max-width:480px;margin:0 auto;display:grid;place-items:center}
+.globe{width:100%;aspect-ratio:1;border-radius:50%;position:relative;background:radial-gradient(circle at 30% 30%,var(--sage),var(--sage-deep) 60%,var(--moss));box-shadow:inset -30px -30px 80px rgba(0,0,0,.3),0 30px 80px rgba(59,79,60,.3);animation:rotateGlobe 30s linear infinite;overflow:hidden}
+@keyframes rotateGlobe{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.globe::before,.globe::after{content:'';position:absolute;border-radius:50%;border:1px dashed rgba(250,247,239,.35)}
+.globe::before{inset:8%;border-color:rgba(250,247,239,.2)}
+.globe::after{inset:18%;border-color:rgba(250,247,239,.15)}
+.continent{position:absolute;background:var(--moss);border-radius:50%;opacity:.7}
+.c1{top:20%;left:25%;width:30%;height:25%;border-radius:60% 40% 50% 50%}
+.c2{top:50%;left:55%;width:25%;height:30%;border-radius:40% 60% 50% 50%}
+.c3{top:60%;left:15%;width:20%;height:20%;border-radius:50%}
+.c4{top:15%;left:60%;width:18%;height:15%;border-radius:50%}
+.orbit{position:absolute;inset:-8%;border:1px solid var(--line);border-radius:50%;animation:rotateOrbit 20s linear infinite}
+.orbit-2{inset:-16%;animation-duration:30s;animation-direction:reverse}
+.orbit::before{content:'';position:absolute;top:-6px;left:50%;width:12px;height:12px;background:var(--clay);border-radius:50%;transform:translateX(-50%);box-shadow:0 0 20px var(--clay)}
+.orbit-2::before{background:var(--sage-deep);box-shadow:0 0 20px var(--sage-deep)}
+@keyframes rotateOrbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.hero-tags{display:flex;gap:1rem;flex-wrap:wrap;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)}
+.hero-tag{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--sage-deep);border-radius:50%}
+
+/* ============ ABOUT ============ */
+.about{background:var(--bg-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:center}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+.about-img{aspect-ratio:4/5;background:linear-gradient(135deg,var(--sage-deep),var(--moss));position:relative;overflow:hidden}
+.about-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(143,166,142,.4),transparent 60%)}
+.about-img-leaf{position:absolute;font-size:12rem;color:rgba(250,247,239,.08);bottom:-2rem;right:-1rem;font-family:var(--display)}
+.about-content h2{margin:1.5rem 0 2rem}
+.about-content p{font-size:1.05rem;color:var(--ink-soft);margin-bottom:1.5rem;max-width:55ch}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)}
+.about-stat .num{font-family:var(--display);font-size:clamp(2.5rem,4vw,3.5rem);color:var(--moss);line-height:1}
+.about-stat .lbl{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+
+/* ============ MISSION & VISION ============ */
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:4rem}
+@media(max-width:768px){.mv-grid{grid-template-columns:1fr}}
+.mv-card{padding:3rem;background:var(--cream);border:1px solid var(--line);transition:.4s var(--ease);position:relative;overflow:hidden}
+.mv-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(31,42,33,.15)}
+.mv-card .ico{width:56px;height:56px;background:var(--sage-deep);color:var(--cream);display:grid;place-items:center;border-radius:50%;margin-bottom:2rem}
+.mv-card h3{font-size:2rem;margin-bottom:1rem}
+.mv-card p{color:var(--ink-soft);font-size:1rem}
+.mv-card .mark{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--display);font-size:5rem;color:var(--bg-2);line-height:1}
+
+/* ============ SERVICES ============ */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}}
+.s-card{background:var(--bg);padding:2.5rem;border:1px solid var(--line);transition:.5s var(--ease);position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column}
+.s-card::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--sage-deep);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.s-card:hover::after{transform:scaleX(1)}
+.s-card:hover{background:var(--cream);transform:translateY(-4px)}
+.s-card .s-num{font-family:var(--display);font-size:1rem;color:var(--terra);margin-bottom:1.5rem}
+.s-card .s-ico{width:48px;height:48px;background:var(--bg-2);color:var(--sage-deep);border-radius:50%;display:grid;place-items:center;margin-bottom:1.5rem;transition:.4s}
+.s-card:hover .s-ico{background:var(--sage-deep);color:var(--cream)}
+.s-card h3{font-size:1.5rem;margin-bottom:.75rem}
+.s-card p{color:var(--muted);font-size:.95rem;flex:1}
+.s-card .link{margin-top:1.5rem;font-size:.825rem;color:var(--sage-deep);font-weight:500;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;gap:.5rem;align-items:center}
+
+/* ============ IMPACT ============ */
+.impact{background:var(--moss);color:var(--cream);position:relative;overflow:hidden}
+.impact::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(143,166,142,.15),transparent 50%)}
+.impact h2{color:var(--cream)}
+.impact .eyebrow{color:var(--sage)}
+.impact .eyebrow::before{background:var(--sage)}
+.impact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(143,166,142,.2);margin-top:4rem;border:1px solid rgba(143,166,142,.2)}
+@media(max-width:768px){.impact-grid{grid-template-columns:1fr}}
+.impact-item{background:var(--moss);padding:3rem;display:flex;gap:2rem;align-items:flex-start;transition:.4s;position:relative}
+.impact-item:hover{background:#243223}
+.impact-item .i-num{font-family:var(--display);font-size:3rem;color:var(--sage);line-height:1;flex-shrink:0}
+.impact-item h3{color:var(--cream);font-size:1.5rem;margin-bottom:.5rem}
+.impact-item p{color:rgba(245,241,232,.7);font-size:.95rem}
+
+/* ============ LEADERSHIP ============ */
+.leaders{background:var(--bg-2)}
+.leaders-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;margin-top:4rem;max-width:900px;margin-inline:auto}
+@media(max-width:768px){.leaders-grid{grid-template-columns:1fr}}
+.leader{text-align:center;background:var(--cream);padding:3rem 2rem;transition:.4s}
+.leader:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(31,42,33,.15)}
+.leader-photo{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--sage-deep));margin:0 auto 1.5rem;display:grid;place-items:center;font-family:var(--display);font-size:3rem;color:var(--cream);position:relative}
+.leader-photo::after{content:'';position:absolute;inset:-6px;border:1px solid var(--sage);border-radius:50%;opacity:.5}
+.leader h3{font-size:1.6rem;margin-bottom:.5rem}
+.leader .role{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem}
+.leader p{color:var(--muted);font-size:.92rem;max-width:32ch;margin:0 auto}
+
+/* ============ CERTIFICATIONS ============ */
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:4rem;max-width:900px;margin-inline:auto}
+@media(max-width:600px){.certs-grid{grid-template-columns:1fr}}
+.cert{padding:3rem 2.5rem;border:1px solid var(--line);background:var(--cream);display:flex;align-items:center;gap:2rem;transition:.4s}
+.cert:hover{background:var(--bg-2);transform:translateY(-4px)}
+.cert-badge{width:80px;height:80px;border-radius:50%;background:var(--sage-deep);color:var(--cream);display:grid;place-items:center;flex-shrink:0;font-family:var(--display);font-size:1.5rem;position:relative}
+.cert-badge::after{content:'';position:absolute;inset:-6px;border:1px dashed var(--sage-deep);border-radius:50%}
+.cert h3{font-size:1.25rem;margin-bottom:.25rem}
+.cert p{font-size:.875rem;color:var(--muted)}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--bg-2);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,var(--sage),transparent 70%);opacity:.15;top:-200px;right:-200px;border-radius:50%}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start;margin-top:4rem;position:relative}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.contact-info-list{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem}
+.cinfo{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;background:var(--cream);border:1px solid var(--line);transition:.3s}
+.cinfo:hover{transform:translateX(6px);border-color:var(--sage-deep)}
+.cinfo .ic{width:44px;height:44px;background:var(--sage-deep);color:var(--cream);display:grid;place-items:center;border-radius:50%;flex-shrink:0}
+.cinfo .lbl{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.cinfo .val{font-family:var(--display);font-size:1.15rem;color:var(--moss);margin-top:.2rem}
+
+.c-form{background:var(--cream);padding:3rem;border:1px solid var(--line)}
+.c-form h3{font-size:1.75rem;margin-bottom:.5rem}
+.c-form .sub{color:var(--muted);margin-bottom:2rem;font-size:.92rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.field{margin-bottom:1.25rem}
+.field label{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.field input,.field textarea,.field select{width:100%;background:var(--bg);border:1px solid var(--line);padding:.9rem 1rem;font-family:var(--body);font-size:.95rem;color:var(--ink);transition:.3s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--sage-deep);background:var(--cream)}
+.field textarea{resize:vertical;min-height:120px}
+
+/* ============ FOOTER ============ */
+footer{background:var(--moss);color:rgba(245,241,232,.7);padding:5rem 0 2rem;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;top:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--sage-deep),transparent 70%);opacity:.3;border-radius:50%}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;position:relative}
+@media(max-width:768px){.foot-grid{grid-template-columns:1fr 1fr}}
+.foot-brand .logo{color:var(--cream)}
+.foot-brand .logo-leaf{background:var(--sage)}
+.foot-brand .logo-leaf::after{background:var(--moss)}
+.foot-brand p{margin-top:1.5rem;max-width:36ch;color:rgba(245,241,232,.6)}
+.foot-col h4{font-family:var(--body);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sage);margin-bottom:1.5rem;font-weight:500}
+.foot-col a{display:block;padding:.4rem 0;color:rgba(245,241,232,.6);font-size:.9rem;transition:.3s}
+.foot-col a:hover{color:var(--cream);padding-left:.4rem}
+.foot-bottom{padding-top:2rem;border-top:1px solid rgba(143,166,142,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.825rem;color:rgba(245,241,232,.5);position:relative}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-stagger>*{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-stagger.in>*{opacity:1;transform:translateY(0)}
+.reveal-stagger.in>*:nth-child(1){transition-delay:.05s}
+.reveal-stagger.in>*:nth-child(2){transition-delay:.15s}
+.reveal-stagger.in>*:nth-child(3){transition-delay:.25s}
+.reveal-stagger.in>*:nth-child(4){transition-delay:.35s}
+.reveal-stagger.in>*:nth-child(5){transition-delay:.45s}
+.reveal-stagger.in>*:nth-child(6){transition-delay:.55s}
+.reveal-stagger.in>*:nth-child(7){transition-delay:.65s}
+
+@media(max-width:768px){
+  .menu-toggle{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:var(--cream);flex-direction:column;justify-content:center;padding:2rem;transition:right .4s var(--ease);font-size:1.15rem;box-shadow:-10px 0 40px rgba(0,0,0,.1)}
+  .nav-links.open{right:0}
+}
+
+/* Floating leaves */
+.leaf-float{position:absolute;color:var(--sage);opacity:.15;pointer-events:none;animation:leafFloat 12s ease-in-out infinite}
+@keyframes leafFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-30px) rotate(15deg)}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-leaf"></span>MGN Ventures</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#mission">Mission</a>
+      <a href="#services">Services</a>
+      <a href="#impact">Impact</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
+    <svg class="leaf-float" style="top:20%;left:8%" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+    <svg class="leaf-float" style="bottom:25%;right:10%;animation-delay:-4s" width="50" height="50" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-text reveal">
+      <span class="eyebrow">Green Technology · Est. 2024</span>
+      <h1 class="display">Building a <span class="italic">regenerative</span> future.</h1>
+      <p class="lead">MGN Ventures Private Limited is engineering tomorrow's sustainable infrastructure — clean energy, circular systems and technologies that restore the planet.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">Explore Solutions <span class="arrow">→</span></a>
+        <a href="#contact" class="btn">Partner With Us</a>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">DPIIT Recognized</span>
+        <span class="hero-tag">MSME Certified</span>
+        <span class="hero-tag">Carbon Conscious</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="globe-stage">
+        <div class="orbit"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="globe">
+          <div class="continent c1"></div>
+          <div class="continent c2"></div>
+          <div class="continent c3"></div>
+          <div class="continent c4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img reveal">
+      <div class="about-img-leaf">↗</div>
+    </div>
+    <div class="about-content reveal">
+      <span class="eyebrow">About MGN Ventures</span>
+      <h2 class="h-section">A company built on stewardship, not just scale.</h2>
+      <p>We exist at the intersection of technology and ecology — designing, financing and deploying the systems that will define a low-carbon civilization.</p>
+      <p>From renewable energy generation to circular supply chains and sustainable mobility, our portfolio is built around a single principle: every project must leave the planet measurably better than it found it.</p>
+      <div class="about-stats">
+        <div class="about-stat"><div class="num" data-count="12">0</div><div class="lbl">MW Clean Energy</div></div>
+        <div class="about-stat"><div class="num" data-count="8500" data-suffix="+">0</div><div class="lbl">Tons CO₂ Offset</div></div>
+        <div class="about-stat"><div class="num" data-count="40">0</div><div class="lbl">Active Projects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section id="mission">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Mission &amp; Vision</span>
+      <h2 class="h-section" style="margin-top:1.5rem;max-width:20ch;margin-inline:auto">Designing the infrastructure of a livable century.</h2>
+    </div>
+    <div class="mv-grid reveal-stagger">
+      <div class="mv-card">
+        <div class="mark">M.</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+        <h3>Our Mission</h3>
+        <p>To accelerate the global transition to a regenerative economy by investing in, building and scaling technologies that decarbonize industry, restore ecosystems and uplift communities.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mark">V.</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Our Vision</h3>
+        <p>A world where prosperity and planetary health are inseparable — powered by abundant clean energy, circular materials, and intelligent systems that work in harmony with nature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto" class="reveal">
+      <span class="eyebrow">What We Build</span>
+      <h2 class="h-section" style="margin-top:1.5rem">A portfolio of solutions across the green economy.</h2>
+      <p class="muted" style="margin-top:1rem">Seven verticals. One unifying purpose — accelerating the regenerative transition.</p>
+    </div>
+    <div class="services-grid reveal-stagger">
+      <div class="s-card"><div class="s-num">/ 01</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><h3>Renewable Energy</h3><p>Solar, wind and hybrid generation projects delivering reliable clean power to homes, industries and grids.</p><a class="link" href="#">Learn more →</a></div>
+      <div class="s-card"><div class="s-num">/ 02</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="18" height="10" rx="1"/><path d="M22 11v2"/><path d="M6 11v2M10 11v2"/></svg></div><h3>Green Energy Storage</h3><p>Next-generation battery and grid-scale storage solutions that make renewable energy dispatchable around the clock.</p><a class="link" href="#">Learn more →</a></div>
+      <div class="s-card"><div class="s-num">/ 03</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17h14l-2-7H7l-2 7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 10V7h6v3"/></svg></div><h3>Electric Vehicles</h3><p>EV manufacturing, fleet conversion and charging infrastructure to electrify mobility at every scale.</p><a class="link" href="#">Learn more →</a></div>
+      <div class="s-card"><div class="s-num">/ 04</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-4-2-8-6-12z"/></svg></div><h3>Sustainable Agriculture</h3><p>Regenerative farming, precision agtech and post-harvest systems that restore soil and boost yields.</p><a class="link" href="#">Learn more →</a></div>
+      <div class="s-card"><div class="s-num">/ 05</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18l-1 14H4L3 6z"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><h3>Waste Management</h3><p>Closed-loop systems for recycling, composting and waste-to-energy that transform liability into value.</p><a class="link" href="#">Learn more →</a></div>
+      <div class="s-card"><div class="s-num">/ 06</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></div><h3>Green Homes</h3><p>Net-zero residential architecture combining passive design, embedded renewables and healthy materials.</p><a class="link" href="#">Learn more →</a></div>
+      <div class="s-card"><div class="s-num">/ 07</div><div class="s-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><h3>Civil Engineering</h3><p>Sustainable infrastructure projects built with low-carbon materials and lifecycle thinking from day one.</p><a class="link" href="#">Learn more →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact" id="impact">
+  <div class="container">
+    <div style="max-width:680px" class="reveal">
+      <span class="eyebrow">Impact Areas</span>
+      <h2 class="h-section" style="margin-top:1.5rem">The four frontiers where we focus our work.</h2>
+    </div>
+    <div class="impact-grid reveal-stagger">
+      <div class="impact-item"><div class="i-num">01</div><div><h3>Climate Change</h3><p>Mitigating greenhouse emissions through clean energy deployment, electrification and nature-based carbon sequestration.</p></div></div>
+      <div class="impact-item"><div class="i-num">02</div><div><h3>Circular Economy</h3><p>Designing systems that eliminate waste at the source, keep materials in use, and regenerate natural capital.</p></div></div>
+      <div class="impact-item"><div class="i-num">03</div><div><h3>Resource Conservation</h3><p>Protecting water, soil and biodiversity through efficient technologies and responsible land stewardship.</p></div></div>
+      <div class="impact-item"><div class="i-num">04</div><div><h3>Environmental Regeneration</h3><p>Going beyond sustainability to actively restore ecosystems, watersheds and degraded landscapes.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leaders" id="leadership">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto" class="reveal">
+      <span class="eyebrow">Leadership Team</span>
+      <h2 class="h-section" style="margin-top:1.5rem">Founders with conviction.</h2>
+      <p class="muted" style="margin-top:1rem">Decades of combined experience in clean technology, finance and operations.</p>
+    </div>
+    <div class="leaders-grid reveal-stagger">
+      <div class="leader">
+        <div class="leader-photo">NG</div>
+        <h3>Naveen Gurupadaswamy</h3>
+        <div class="role">Co-Founder &amp; Director</div>
+        <p>Strategist and operator focused on scaling green infrastructure across South Asian markets.</p>
+      </div>
+      <div class="leader">
+        <div class="leader-photo">DG</div>
+        <h3>Darshan Gurupadaswamy</h3>
+        <div class="role">Co-Founder &amp; Director</div>
+        <p>Technology and engineering lead driving R&amp;D across MGN's renewable and mobility verticals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto" class="reveal">
+      <span class="eyebrow">Certifications</span>
+      <h2 class="h-section" style="margin-top:1.5rem">Recognized. Registered. Trusted.</h2>
+    </div>
+    <div class="certs-grid reveal-stagger">
+      <div class="cert"><div class="cert-badge">D</div><div><h3>DPIIT Recognition</h3><p>Recognized by the Department for Promotion of Industry and Internal Trade, Government of India.</p></div></div>
+      <div class="cert"><div class="cert-badge">M</div><div><h3>MSME Registration</h3><p>Registered as a Micro, Small &amp; Medium Enterprise under the Ministry of MSME, Government of India.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div style="max-width:680px" class="reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="h-section" style="margin-top:1.5rem">Let's build the regenerative future together.</h2>
+      <p class="muted" style="margin-top:1rem">Whether you're an investor, partner or future colleague — we'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-list">
+          <div class="cinfo"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="lbl">Registered Office</div><div class="val">Bengaluru, Karnataka, India</div></div></div>
+          <div class="cinfo"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L7.9 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg></div><div><div class="lbl">Phone</div><div class="val">+91 99999 99999</div></div></div>
+          <div class="cinfo"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></div><div><div class="lbl">Email</div><div class="val">contact@mgnventures.in</div></div></div>
+        </div>
+      </div>
+      <form class="c-form reveal" onsubmit="handleContact(event)">
+        <h3>Send us a message</h3>
+        <p class="sub">We respond within two business days.</p>
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+          <div class="field"><label>Organization</label><input type="text" placeholder="Optional"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Email</label><input type="email" required placeholder="you@company.com"></div>
+          <div class="field"><label>Phone</label><input type="tel" placeholder="+91 ..."></div>
+        </div>
+        <div class="field"><label>Interest</label><select><option>Investment / Partnership</option><option>Renewable Energy</option><option>Electric Vehicles</option><option>Sustainable Agriculture</option><option>Green Homes</option><option>Careers</option><option>General Inquiry</option></select></div>
+        <div class="field"><label>Message</label><textarea required placeholder="Tell us about your project or inquiry…"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send Message <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="logo-leaf"></span>MGN Ventures</div>
+        <p>Pioneering green technology for a regenerative future. Building the clean infrastructure of tomorrow, today.</p>
+      </div>
+      <div class="foot-col"><h4>Company</h4><a href="#about">About</a><a href="#mission">Mission</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a></div>
+      <div class="foot-col"><h4>Solutions</h4><a href="#services">Renewable Energy</a><a href="#services">Electric Vehicles</a><a href="#services">Green Homes</a><a href="#services">Agriculture</a></div>
+      <div class="foot-col"><h4>Connect</h4><a href="mailto:contact@mgnventures.in">Email</a><a href="#">LinkedIn</a><a href="#">Twitter</a><a href="#">Newsletter</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 MGN Ventures Private Limited. All rights reserved.</span>
+      <span>DPIIT Recognized · MSME Registered</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav'),navLinks=document.getElementById('navLinks'),menuTog=document.getElementById('menuToggle');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+menuTog.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+// Reveal
+const io=new IntersectionObserver(ents=>{
+  ents.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+},{threshold:.15});
+document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>io.observe(el));
+
+// Counters
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const co=new IntersectionObserver(ents=>{
+    ents.forEach(e=>{
+      if(e.isIntersecting){
+        const target=parseInt(el.dataset.count);const suf=el.dataset.suffix||'';
+        const dur=1800,start=performance.now();
+        function tick(t){
+          const p=Math.min(1,(t-start)/dur);
+          const e2=1-Math.pow(1-p,3);
+          el.textContent=Math.floor(target*e2).toLocaleString()+suf;
+          if(p<1)requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);co.disconnect();
+      }
+    });
+  },{threshold:.5});
+  co.observe(el);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}
+  });
+});
+
+// Form
+function handleContact(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type="submit"]');
+  btn.innerHTML='Sending…';
+  setTimeout(()=>{btn.innerHTML='Message Sent ✓';e.target.reset();setTimeout(()=>{btn.innerHTML='Send Message <span class="arrow">→</span>'},2500)},900);
+}
+
+// Parallax blobs
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5);
+  const y=(e.clientY/window.innerHeight-.5);
+  document.querySelectorAll('.hero-blob').forEach((b,i)=>{
+    const f=(i+1)*15;
+    b.style.transform=`translate(${x*f}px,${y*f}px)`;
+  });
+});
+</script>
+</body>
+</html>
